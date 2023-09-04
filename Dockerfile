@@ -1,4 +1,6 @@
-FROM ubuntu
-RUN mkdir /myvol
-RUN echo "hello world" > /myvol/greeting
-VOLUME /myvol
+FROM node:latest
+WORKDIR /usr/src/app
+COPY nodeapp/* /
+RUN npm install
+EXPOSE 3000
+CMD [ "npm","start" ]
